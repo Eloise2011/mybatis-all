@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="elo.pra.pojo.Car">
+    <!--insert SQL-->
+    <insert id="insertCar">
+        insert into t_car (name, price, color, brand, type, created_date,last_updated)
+        values (#{name},#{price},#{color},#{brand},#{type},#{createdDate},#{lastUpdated});
+                -- ('兰德酷路泽', 30.0, 'White', 'Tyoto', 'Gas', '2020-10-11 00:01:59',null);
+    </insert>
+
+    <delete id="deleteById">
+        delete from t_car where id=${id};
+    </delete>
+    <update id="updateByBrand" parameterType="elo.pra.pojo.Car">
+        update t_car set color=#{color}, price=#{price} where brand = #{brand};
+    </update>
+
+    <select id="selectById" resultType="elo.pra.pojo.Car">
+        select * from t_car where id=${id};
+    </select>
+
+    <select id="selectByIdRange" resultType="elo.pra.pojo.Car">
+        select * from t_car where id > ${id};
+    </select>
+</mapper>

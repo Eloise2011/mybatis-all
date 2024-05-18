@@ -15,7 +15,19 @@ public class Car {
     private String createdDate;
     private String lastUpdated;
 
-
+    @Override
+    public String toString() {
+        return "Car{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", price=" + price +
+                ", color='" + color + '\'' +
+                ", brand='" + brand + '\'' +
+                ", type='" + type + '\'' +
+                ", createdDate='" + createdDate + '\'' +
+                ", lastUpdated='" + lastUpdated + '\'' +
+                '}';
+    }
 
     public String getId() {
         return id;
